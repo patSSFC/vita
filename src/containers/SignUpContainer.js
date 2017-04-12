@@ -1,39 +1,54 @@
 import React from 'react';
+import {Redirect} from 'react-router-dom';
+
+// components
 import SignUp from '../components/SignUp';
+
+// authentication
 import { auth, getCurrentUser } from '../utils/AuthHelpers';
 import { ref } from '../config/constants';
 
 
+
 class SignUpContainer extends React.Component {
+  state = {
+    shouldRedirect: false
+  }
+  componentDidMount() {
+    console.log(`Component did mount`);
+  }
+  updateUser = (uid, first, last, username) => {
 
-    componentDidMount() {
-        console.log(`Component did mount`);
-    }
-    updateUser = (uid, first, last, username) => {
+    console.log(`the uid is: ${uid}`);
+    ref.child(`/users/${uid}/info`)
+        .update({
+            first: first,
+            last: last,
+            username: username
+        });
+  }
+  createUser = (userInfo) => {
+    console.log(`createUser invoked...`);
 
-        console.log(`the uid is: ${uid}`);
-        ref.child(`/users/${uid}/info`)
-            .update({
-                first: first,
-                last: last,
-                username: username
-            });
+    auth(userInfo.email, userInfo.password)
+        .then((user) => {
+            this.updateUser(user.uid, userInfo.first, userInfo.last, userInfo.username)
+            this.setState({shouldRedirect: true})
+        });
+  }
+  render() {
+    if (this.state.shouldRedirect) {
+      return (
+         <Redirect to="/onboard" />
+      )
+    } else {
+      return (
+          <SignUp
+              onCreateUser={this.createUser}
+          />
+      )
     }
-    createUser = (userInfo) => {
-        console.log(`createUser invoked...`);
-
-        auth(userInfo.email, userInfo.password)
-            .then((user) => {
-                this.updateUser(user.uid, userInfo.first, userInfo.last, userInfo.username)
-            });
-    }
-    render() {
-        return (
-            <SignUp
-                onCreateUser={this.createUser}
-            />
-        )
-    }
+  }
 };
 
 export default SignUpContainer;
