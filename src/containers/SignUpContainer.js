@@ -1,7 +1,13 @@
 import React from 'react';
+import {Redirect} from 'react-router-dom';
+
+// components
 import SignUp from '../components/SignUp';
+
+// authentication
 import { auth, getCurrentUser } from '../utils/AuthHelpers';
 import { ref } from '../config/constants';
+
 
 
 class SignUpContainer extends React.Component {
