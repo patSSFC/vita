@@ -1,4 +1,5 @@
 import React from 'react';
+import {Redirect} from 'react-router-dom';
 
 // components
 import OnboardNav from '../components/onboarding/nav';
@@ -16,7 +17,16 @@ class OnboardContainer extends React.Component {
       {id: 1, name: 'skillsContainer', isCompleted: false},
       {id: 2, name: 'projectsContainer', isCompleted: false},
       {id: 3, name: 'aboutContainer', isCompleted: false}
-    ]
+    ],
+    loggedUser: false
+  }
+  componentWillMount() {
+    const user = getCurrentUser();
+    if (user) {
+      this.setState({loggedUser: true})
+    } else {
+      <Redirect to="/" />
+    }
   }
   render() {
     return (
