@@ -7,6 +7,7 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import Main from '../components/Main';
 import SignUpContainer from '../containers/SignUpContainer';
 import SignInContainer from '../containers/SignInContainer';
+import OnboardContainer from '../containers/OnboardContainer';
 
 const routes = (
     <BrowserRouter>
@@ -14,8 +15,10 @@ const routes = (
             <Route exact path='/' component={Main} />
             <Route path='/signup' component={SignUpContainer} />
             <Route path='/signin' component={SignInContainer} />
+            <Route path='/onboard' component={OnboardContainer} />
         </div>
     </BrowserRouter>
+
 );
 
 export default routes;
