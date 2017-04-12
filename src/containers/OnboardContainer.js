@@ -8,6 +8,16 @@ import { getCurrentUser } from '../utils/AuthHelpers';
 import { ref } from '../config/constants';
 
 class OnboardContainer extends React.Component {
+  static defaultProps = {
+    initialStep: 'skillsContainer'
+  }
+  state = {
+    steps: [
+      {id: 1, name: 'skillsContainer', isCompleted: false},
+      {id: 2, name: 'projectsContainer', isCompleted: false},
+      {id: 3, name: 'aboutContainer', isCompleted: false}
+    ]
+  }
   render() {
     return (
       <div>
