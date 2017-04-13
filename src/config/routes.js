@@ -8,6 +8,7 @@ import Main from '../components/Main';
 import SignUpContainer from '../containers/SignUpContainer';
 import SignInContainer from '../containers/SignInContainer';
 import OnboardContainer from '../containers/OnboardContainer';
+import SkillsContainer from '../containers/SkillsContainer';
 
 const routes = (
     <BrowserRouter>
