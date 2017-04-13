@@ -29,12 +29,11 @@ export function login(email, password, callback) {
             const errorCode = error.code;
             const errorMessage = error.message;
             if (errorCode === 'auth/user-not-found') {
-                alert('User does not exist.');
+                alert('User does not exist!!!!');
                 //TODO: write code for redirect to signup
             } else {
                 alert(errorMessage);
             }
-            console.log(error);
         });
 };
 
