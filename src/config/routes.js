@@ -16,7 +16,7 @@ const routes = (
             <Route exact path='/' component={Main} />
             <Route path='/signup' component={SignUpContainer} />
             <Route path='/signin' component={SignInContainer} />
-            <Route path='/onboard' component={OnboardContainer} />
+            <Route path="/onboard" component={SkillsContainer} />
         </div>
     </BrowserRouter>
 
