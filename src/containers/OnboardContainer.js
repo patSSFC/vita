@@ -1,5 +1,5 @@
 import React from 'react';
-import {Redirect} from 'react-router-dom';
+import {Redirect, Route} from 'react-router-dom';
 
 // components
 import OnboardNav from '../components/onboarding/nav';
@@ -8,20 +8,47 @@ import OnboardNav from '../components/onboarding/nav';
 import { getCurrentUser } from '../utils/AuthHelpers';
 import { ref } from '../config/constants';
 
+const Skills = () => {
+  return (
+    <div>
+      <h3>Skills container</h3>
+      <button>Click here to go to next step</button>
+    </div>
+  )
+};
+
+const Projects = () => {
+  return (
+    <div>
+      <h3>Projects container</h3>
+      <button>Click here to go to next step</button>
+    </div>
+  )
+};
+
+const About = () => {
+  return (
+    <div>
+      <h3>About container</h3>
+      <button>All done!</button>
+    </div>
+  )
+};
+
+
 class OnboardContainer extends React.Component {
-  static defaultProps = {
-    initialStep: 'skillsContainer'
-  }
   state = {
     steps: [
-      {id: 1, name: 'skillsContainer', isCompleted: false},
-      {id: 2, name: 'projectsContainer', isCompleted: false},
-      {id: 3, name: 'aboutContainer', isCompleted: false}
+      {id: 1, name: 'skillStep', isCompleted: false},
+      {id: 2, name: 'projectStep', isCompleted: false},
+      {id: 3, name: 'aboutStep', isCompleted: false}
     ],
-    loggedUser: false
+    currentStep: 'skillStep',
+    isLoggedIn: false
   }
   componentWillMount() {
     const user = getCurrentUser();
+    console.log(user);
     if (user) {
       this.setState({loggedUser: true})
     } else {
@@ -34,6 +61,7 @@ class OnboardContainer extends React.Component {
         <OnboardNav />
         <div className="onboard-body">
           <h2>In the Onboard Container!</h2>
+          <Skills />
         </div>
       </div>
     )
