@@ -1,4 +1,5 @@
 import React from 'react';
+import SkillsWrapper from './SkillsWrapper'
 
 const Skills = (props) => {
     return (
@@ -6,6 +7,9 @@ const Skills = (props) => {
             <div>
                 <input type="text" name="language"/>
             </div>
+            <select>
+                {props.skillsList.map((skill) =>{ return <SkillsWrapper value={skill} key={skill._id} />})}
+            </select>
             <div>
                 <input type="number" name="years"/>
             </div>
