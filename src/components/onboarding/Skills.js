@@ -5,13 +5,13 @@ const Skills = (props) => {
     return (
         <form>
             <div>
-                <input type="text" name="language"/>
+                <input type="text" name="skill"/>
             </div>
             <select>
                 {props.skillsList.map((skill) =>{ return <SkillsWrapper value={skill} key={skill._id} />})}
             </select>
             <div>
-                <input type="number" name="years"/>
+                <input type="number" name="experience"/>
             </div>
             <div>
                 <input type="number" name="stars"/>
