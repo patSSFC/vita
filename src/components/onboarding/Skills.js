@@ -13,6 +13,9 @@ const Skills = (props) => {
             <div>
                 <input type="number" name="stars" onChange={props.onInputChange}/>
             </div>
+            <div>
+                <button type="button" onClick={props.onSaveSkills}>Save skill</button>
+            </div>
         </form>
     )
 }

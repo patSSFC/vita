@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Skills from '../components/onboarding/Skills';
 import skillsList from '../test/skills';
 import update from 'immutability-helper';
+import {ref} from '../config/constants.js';
 
 class SkillsContainer extends Component {
     state = {
@@ -10,6 +11,7 @@ class SkillsContainer extends Component {
             {id: "2", skill: "MEAN", stars: "3"},
             {id: "3", skill: "React", stars: "3"}
         ],
+        //this may not need to be in state but prop since it doesn't change
         defaultSkills: skillsList,
         currentSkill: {
             skill: "",
@@ -43,6 +45,8 @@ class SkillsContainer extends Component {
 
     handleSaveSkills = (e) => {
         //save user skill on submit
+        console.log("save skill!", this.state.currentSkill);
+
     }
 
     render() {
