@@ -64,7 +64,11 @@ class OnboardContainer extends React.Component {
         <OnboardNav />
         <div className="onboard-body">
           <h2>In the Onboard Container!</h2>
+<<<<<<< HEAD
           <Skills />
+=======
+
+>>>>>>> 35c4e59a2881f037f63c57c036fb2eebba790e1b
         </div>
       </div>
     )
