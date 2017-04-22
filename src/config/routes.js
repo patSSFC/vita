@@ -11,9 +11,10 @@ import OnboardContainer from '../containers/OnboardContainer';
 const routes = (
   <BrowserRouter>
       <div>
-          <Route exact path='/' component={Main} />
-          <Route path='/signup' component={SignUpContainer} />
-          <Route path='/onboard' component={OnboardContainer} />
+          <Main>
+            <Route path='/signup' component={SignUpContainer} />
+            <Route path='/onboard' component={OnboardContainer} />
+          </Main>
       </div>
   </BrowserRouter>
 );

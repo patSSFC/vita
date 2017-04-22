@@ -9,6 +9,7 @@ import { getCurrentUser } from '../utils/AuthHelpers';
 import { ref } from '../config/constants';
 
 const Skills = () => {
+  // /skills
   return (
     <div>
       <h3>Skills container</h3>
@@ -19,6 +20,7 @@ const Skills = () => {
 
 const Projects = () => {
   return (
+    // projects
     <div>
       <h3>Projects container</h3>
       <button>Click here to go to next step</button>
@@ -28,6 +30,7 @@ const Projects = () => {
 
 const About = () => {
   return (
+    //about
     <div>
       <h3>About container</h3>
       <button>All done!</button>
