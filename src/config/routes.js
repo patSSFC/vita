@@ -4,17 +4,17 @@ import React from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
 
 // declaring components
-import Main from '../components/Main';
+import App from '../components/App';
 import SignUpContainer from '../containers/SignUpContainer';
 import OnboardContainer from '../containers/OnboardContainer';
 
 const routes = (
   <BrowserRouter>
       <div>
-          <Main>
+          <App>
             <Route path='/signup' component={SignUpContainer} />
             <Route path='/onboard' component={OnboardContainer} />
-          </Main>
+          </App>
       </div>
   </BrowserRouter>
 );

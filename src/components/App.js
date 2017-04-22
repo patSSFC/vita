@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Main = ({children}) => {
+const App = ({children}) => {
     return (
         <div>
             <h2>Welcome to Vita</h2>
@@ -9,4 +9,4 @@ const Main = ({children}) => {
     )
 };
 
-export default Main;
+export default App;
