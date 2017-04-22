@@ -3,20 +3,12 @@ import {Redirect, Route} from 'react-router-dom';
 
 // components
 import OnboardNav from '../components/onboarding/nav';
+import SkillsContainer from './SkillsContainer';
 
 // authentication
 import { getCurrentUser } from '../utils/AuthHelpers';
 import { ref } from '../config/constants';
 
-const Skills = () => {
-  // /skills
-  return (
-    <div>
-      <h3>Skills container</h3>
-      <button>Click here to go to next step</button>
-    </div>
-  )
-};
 
 const Projects = () => {
   return (
@@ -46,8 +38,7 @@ class OnboardContainer extends React.Component {
       {id: 2, name: 'projectStep', isCompleted: false},
       {id: 3, name: 'aboutStep', isCompleted: false}
     ],
-    currentStep: 'skillStep',
-    isLoggedIn: false
+    currentStep: 'skillStep'
   }
   componentWillMount() {
     const user = getCurrentUser();
@@ -64,11 +55,7 @@ class OnboardContainer extends React.Component {
         <OnboardNav />
         <div className="onboard-body">
           <h2>In the Onboard Container!</h2>
-<<<<<<< HEAD
-          <Skills />
-=======
-
->>>>>>> 35c4e59a2881f037f63c57c036fb2eebba790e1b
+          <SkillsContainer />
         </div>
       </div>
     )
