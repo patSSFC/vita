@@ -47,6 +47,16 @@ export function getCurrentUser() {
     return firebaseAuth.currentUser;
 };
 
+export function getLoggedInState() {
+  return firebaseAuth.onAuthStateChanged((user) => {
+    if (user) {
+      return true;
+    } else {
+      return false;
+    }
+  })
+}
+
 export function saveUser(user) {
     return ref.child(`/users/${user.uid}/info`)
         .set({
