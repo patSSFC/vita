@@ -46,7 +46,6 @@ class SkillsContainer extends Component {
     handleSaveSkills = (e) => {
         //save user skill on submit
         console.log("save skill!", this.state.currentSkill);
-
     }
 
     render() {

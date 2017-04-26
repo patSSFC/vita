@@ -4,6 +4,7 @@ import {Redirect, Route} from 'react-router-dom';
 // components
 import OnboardNav from '../components/onboarding/nav';
 import SkillsContainer from './SkillsContainer';
+import ProjectsContainer from './ProjectsContainer';
 
 // authentication
 import { getCurrentUser } from '../utils/AuthHelpers';
@@ -54,8 +55,10 @@ class OnboardContainer extends React.Component {
       <div>
         <OnboardNav />
         <div className="onboard-body">
+          <h2>Dont forget to make sure forms are collecting info according to <a href="https://docs.google.com/drawings/d/1wuhw4qfzg3rG-sxOI0G-4Et2JPPS_MsC1pJ2S6cPbt8/edit">architecture draft</a></h2>
           <h2>In the Onboard Container!</h2>
           <SkillsContainer />
+          <ProjectsContainer />
         </div>
       </div>
     )
