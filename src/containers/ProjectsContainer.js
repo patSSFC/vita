@@ -27,10 +27,20 @@ class ProjectsContainer extends Component {
         const target = e.target;
         const name = target.name;
         const value = target.value;
-        const newState = update(this.state.currentProject, {
-            [name]: {$set: value}
-        });
-        this.setState({currentProject: newState});
+        let newState;
+        switch(name) {
+            case 'skill':
+                newState = update(this.state.currentProject.skillsUsed, {
+                    [name]: {$push: [3]}
+                });
+                this.setState({currentProject: newState});
+                break;
+            default:
+                newState = update(this.state.currentProject, {
+                    [name]: {$set: value}
+                });
+                this.setState({currentProject: newState});
+        }
     }
 
     render() {
