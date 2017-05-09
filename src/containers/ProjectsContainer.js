@@ -15,7 +15,8 @@ class ProjectsContainer extends Component {
             {id: "1", name: "JavaScript", stars: "3", years: "2"},
             {id: "2", name: "React", stars: "3", years: "1"},
             {id: "3", name: "Angular", stars: "2", years: "1"},
-            {id: "4", name: "MEAN", stars: "2", years: "1"}
+            {id: "4", name: "MEAN", stars: "2", years: "1"},
+            {id: "5", name: "Redux", stars: "1", years: "1"}
         ]
     }
 
@@ -30,9 +31,8 @@ class ProjectsContainer extends Component {
         let newState;
         switch(name) {
             case 'skill':
-                newState = update(this.state.currentProject.skillsUsed, {
-                    [name]: {$push: [3]}
-                });
+                newState = {...this.state.currentProject};
+                newState.skillsUsed.push(value);
                 this.setState({currentProject: newState});
                 break;
             default:
