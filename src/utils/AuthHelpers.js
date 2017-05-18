@@ -6,8 +6,8 @@ export function auth(email, password) {
     return firebaseAuth.createUserWithEmailAndPassword(email,password)
         .then(saveUser)
         .catch((error) => {
-            var errorCode = error.code;
-            var errorMessage = error.message;
+            const errorCode = error.code;
+            const errorMessage = error.message;
             if (errorCode === 'auth/weak-password') {
                 alert('The password is too weak.');
             } else {
@@ -21,8 +21,20 @@ export function logout() {
     return firebaseAuth.signOut()
 };
 
-export function login(email, password) {
+export function login(email, password, callback) {
+    console.log("inside login helper!")
     return firebaseAuth.signInWithEmailAndPassword(email, password)
+        .then(callback)
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            if (errorCode === 'auth/user-not-found') {
+                alert('User does not exist!!!!');
+                //TODO: write code for redirect to signup
+            } else {
+                alert(errorMessage);
+            }
+        });
 };
 
 export function resetPassword(email) {
@@ -34,6 +46,16 @@ export function resetPassword(email) {
 export function getCurrentUser() {
     return firebaseAuth.currentUser;
 };
+
+export function getLoggedInState() {
+  return firebaseAuth.onAuthStateChanged((user) => {
+    if (user) {
+      return true;
+    } else {
+      return false;
+    }
+  })
+}
 
 export function saveUser(user) {
     return ref.child(`/users/${user.uid}/info`)
